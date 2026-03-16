@@ -14,15 +14,31 @@
   />
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
+
   <main class="page">
     <div class="card-wrapper">
       <div class="card-flip" id="cardFlip">
 
         <!-- FRENTE -->
         <section class="card card-front">
-          <img src="img/EstebanLopez.png" alt="Foto profesional" class="avatar" />
+          <div class="glass-shine"></div>
+
+          <div class="top-pill">
+            <span class="dot"></span>
+            <span>Tech Lead • Fullstack • Fintech</span>
+          </div>
+
+          <div class="avatar-wrap">
+            <img src="img/EstebanLopez.png" alt="Foto profesional" class="avatar" />
+            <span class="avatar-ring"></span>
+          </div>
 
           <h1>Esteban Alejandro López</h1>
+
           <p class="sub">
             Técnico Superior en Programación<br />
             CUIL: 20-31323182-9
@@ -30,50 +46,56 @@
 
           <p class="tagline">
             Líder técnico de equipo de desarrollo<br />
-            Desarrollador Fullstack
+            Arquitectura funcional, APIs y productos digitales
           </p>
 
           <div class="btn-group">
-            <a class="btn" href="https://wa.me/5493813159106" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-whatsapp"></i> WhatsApp
+            <a class="btn btn-main" href="https://wa.me/5493813159106" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp</span>
             </a>
 
             <a
-              class="btn"
+              class="btn btn-glass"
               href="https://www.instagram.com/turco_lp?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="fab fa-instagram"></i> Instagram
+              <i class="fab fa-instagram"></i>
+              <span>Instagram</span>
             </a>
 
             <a
-              class="btn"
+              class="btn btn-glass"
               href="https://mail.google.com/mail/?view=cm&fs=1&to=lopezestebanalejandro@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="fas fa-envelope"></i> Email
+              <i class="fas fa-envelope"></i>
+              <span>Email</span>
             </a>
 
             <a
-              class="btn"
+              class="btn btn-glass"
               href="https://www.linkedin.com/in/esteban-alejandro-l%C3%B3pez-9898a231"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="fab fa-linkedin"></i> LinkedIn
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
             </a>
 
-            <a class="btn btn-secondary" href="EstebanLopez.vcf" download>
-              <i class="fa-regular fa-address-card"></i> Agregar a contactos
+            <a class="btn btn-accent" href="EstebanLopez.vcf" download>
+              <i class="fa-regular fa-address-card"></i>
+              <span>Guardar contacto</span>
             </a>
 
-            <button class="btn btn-secondary" id="btn-alias" type="button">
-              <i class="fa-solid fa-credit-card"></i> Ver alias de pago
+            <button class="btn btn-accent" id="btn-alias" type="button">
+              <i class="fa-solid fa-wallet"></i>
+              <span>Alias de pago</span>
             </button>
 
-            <button class="btn btn-tertiary" id="btn-ver-dorso" type="button">
+            <button class="btn btn-linkish" id="btn-ver-dorso" type="button">
               Ver dorso de la tarjeta
             </button>
           </div>
@@ -81,66 +103,67 @@
 
         <!-- DORSO -->
         <section class="card card-back">
+          <div class="glass-shine"></div>
+
           <div class="card-back-content">
-            <h2>Sobre mí</h2>
+            <div class="back-header">
+              <h2>Sobre mí</h2>
+              <div class="mini-badge">perfil técnico</div>
+            </div>
 
             <p class="about-text">
               Líder técnico de equipo de desarrollo y desarrollador fullstack,
-              especializado en soluciones financieras, integraciones bancarias y
-              automatizaciones con foco en diseño funcional.
+              especializado en soluciones financieras, integraciones bancarias,
+              automatizaciones y diseño funcional de productos digitales.
             </p>
 
             <p class="about-text">
-              Diseño y desarrollo páginas personales y sitios para negocios,
-              integrando medios de pago, flujos digitales y herramientas útiles
-              para el día a día.
+              Desarrollo páginas personales, landings, flujos con medios de pago,
+              automatizaciones, APIs y herramientas orientadas a mejorar procesos
+              y experiencia de usuario.
             </p>
 
             <ul class="about-list">
-              <li><i class="fa-solid fa-diagram-project"></i> Liderazgo técnico y coordinación de equipos</li>
-              <li><i class="fa-solid fa-building-columns"></i> Integraciones bancarias y soluciones fintech</li>
-              <li><i class="fa-solid fa-gears"></i> Automatizaciones y APIs</li>
-              <li><i class="fa-solid fa-laptop-code"></i> Desarrollo fullstack</li>
-              <li><i class="fa-solid fa-id-card-clip"></i> Páginas personales y sitios para negocios</li>
+              <li><i class="fa-solid fa-diagram-project"></i><span>Liderazgo técnico y coordinación de equipos</span></li>
+              <li><i class="fa-solid fa-building-columns"></i><span>Integraciones bancarias y soluciones fintech</span></li>
+              <li><i class="fa-solid fa-gears"></i><span>Automatizaciones, APIs y lógica de negocio</span></li>
+              <li><i class="fa-solid fa-laptop-code"></i><span>Desarrollo fullstack y arquitectura funcional</span></li>
+              <li><i class="fa-solid fa-id-card-clip"></i><span>Páginas personales y sitios para negocios</span></li>
             </ul>
 
             <h3 class="subtitulo">Mis emprendimientos</h3>
 
             <div class="biz-box">
-              <div class="biz-item">
+              <a
+                class="biz-item"
+                href="https://t-laser-tucuman.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i class="fa-solid fa-bolt"></i>
                 <div class="biz-text">
-                  <strong>T-Laser</strong><br />
-                  <span>Productos personalizados, grabado y corte láser.</span><br />
-                  <a
-                    href="https://t-laser-tucuman.netlify.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="biz-link"
-                  >
-                    Ir al sitio →
-                  </a>
+                  <strong>T-Laser</strong>
+                  <span>Productos personalizados, grabado y corte láser.</span>
                 </div>
-              </div>
+                <span class="biz-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              </a>
 
-              <div class="biz-item">
+              <a
+                class="biz-item"
+                href="https://especianorte.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i class="fa-solid fa-seedling"></i>
                 <div class="biz-text">
-                  <strong>EspeciaNorte</strong><br />
-                  <span>Calidad premium en especias, condimentos y productos artesanales.</span><br />
-                  <a
-                    href="https://especianorte.netlify.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="biz-link"
-                  >
-                    Ir al sitio →
-                  </a>
+                  <strong>EspeciaNorte</strong>
+                  <span>Calidad premium en especias, condimentos y productos artesanales.</span>
                 </div>
-              </div>
+                <span class="biz-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              </a>
             </div>
 
-            <button class="btn btn-secondary" id="btn-ver-frente" type="button">
+            <button class="btn btn-accent" id="btn-ver-frente" type="button">
               Volver al frente
             </button>
           </div>
@@ -149,15 +172,31 @@
     </div>
   </main>
 
+  <!-- WhatsApp flotante -->
+  <a
+    class="floating-wa"
+    href="https://wa.me/5493813159106"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp"
+    title="WhatsApp"
+  >
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <!-- Modal de alias -->
   <div id="aliasModal" class="modal" aria-hidden="true">
     <div class="modal-content">
       <button class="close" type="button" aria-label="Cerrar modal">&times;</button>
-      <h2>Alias de pago</h2>
+
+      <div class="modal-head">
+        <h2>Alias de pago</h2>
+        <p>Copiá rápido el alias que necesites</p>
+      </div>
 
       <div class="alias-list">
         <div class="alias-item">
-          <div class="alias-logo mp">AS</div>
+          <div class="alias-logo astropay">AS</div>
           <div class="alias-text">
             <strong>AstroPay</strong>
             <span>elopezastro2026</span>
@@ -177,7 +216,6 @@
             <i class="fa-regular fa-copy"></i>
           </button>
         </div>
-   
 
         <div class="alias-item">
           <div class="alias-logo naranjax">NX</div>
@@ -194,69 +232,69 @@
   </div>
 
   <script>
-    const cardFlip = document.getElementById('cardFlip');
-    const btnVerDorso = document.getElementById('btn-ver-dorso');
-    const btnVerFrente = document.getElementById('btn-ver-frente');
+    const cardFlip = document.getElementById("cardFlip");
+    const btnVerDorso = document.getElementById("btn-ver-dorso");
+    const btnVerFrente = document.getElementById("btn-ver-frente");
 
-    btnVerDorso.addEventListener('click', () => {
-      cardFlip.classList.add('flipped');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    btnVerDorso.addEventListener("click", () => {
+      cardFlip.classList.add("flipped");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    btnVerFrente.addEventListener('click', () => {
-      cardFlip.classList.remove('flipped');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    btnVerFrente.addEventListener("click", () => {
+      cardFlip.classList.remove("flipped");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    const modal = document.getElementById('aliasModal');
-    const btnAlias = document.getElementById('btn-alias');
-    const closeBtn = document.querySelector('#aliasModal .close');
+    const modal = document.getElementById("aliasModal");
+    const btnAlias = document.getElementById("btn-alias");
+    const closeBtn = document.querySelector("#aliasModal .close");
 
-    btnAlias.addEventListener('click', () => {
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
+    btnAlias.addEventListener("click", () => {
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
     });
 
     function closeModal() {
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
     }
 
-    closeBtn.addEventListener('click', closeModal);
+    closeBtn.addEventListener("click", closeModal);
 
-    window.addEventListener('click', (event) => {
+    window.addEventListener("click", (event) => {
       if (event.target === modal) {
         closeModal();
       }
     });
 
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && modal.classList.contains('show')) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("show")) {
         closeModal();
       }
     });
 
-    const copyButtons = document.querySelectorAll('.copy-btn');
+    const copyButtons = document.querySelectorAll(".copy-btn");
 
     copyButtons.forEach((btn) => {
-      btn.addEventListener('click', async () => {
+      btn.addEventListener("click", async () => {
         const alias = btn.dataset.alias;
 
         try {
           await navigator.clipboard.writeText(alias);
 
           const originalIcon = btn.innerHTML;
-          btn.classList.add('copied');
+          btn.classList.add("copied");
           btn.innerHTML = '<i class="fa-solid fa-check"></i>';
 
           setTimeout(() => {
-            btn.classList.remove('copied');
+            btn.classList.remove("copied");
             btn.innerHTML = originalIcon;
           }, 1500);
         } catch (err) {
-          alert('No se pudo copiar el alias. Podés copiarlo manualmente.');
+          alert("No se pudo copiar el alias. Podés copiarlo manualmente.");
         }
       });
     });
