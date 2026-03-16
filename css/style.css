@@ -4,266 +4,319 @@
   padding: 0;
 }
 
-html, body {
+:root {
+  --bg: #181818;
+  --card: #262626;
+  --card-soft: #323232;
+  --text: #ffffff;
+  --muted: #cfcfcf;
+  --muted-2: #aaaaaa;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --success: #4ade80;
+  --shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
+  --radius: 20px;
+}
+
+html {
   height: 100%;
-  width: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #1e1e1e;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  overflow-y: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 35%),
+    linear-gradient(180deg, #1f1f1f 0%, #171717 100%);
+  color: var(--text);
+  overflow-x: hidden;
 }
 
-/* Contenedor con perspectiva para el flip */
+body.modal-open {
+  overflow: hidden;
+}
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 14px;
+}
+
 .card-wrapper {
-  perspective: 1000px;
   width: 100%;
   max-width: 400px;
+  perspective: 1200px;
 }
 
-/* Elemento que rota */
 .card-flip {
   position: relative;
   width: 100%;
+  min-height: 680px;
   transform-style: preserve-3d;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s ease;
 }
 
-/* Estado rotado */
 .card-flip.flipped {
   transform: rotateY(180deg);
 }
 
-/* Caras */
 .card {
-  background-color: #2c2c2c;
-  padding: 30px 20px;
-  border-radius: 16px;
-  text-align: center;
-  width: 100%;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  width: 100%;
+  min-height: 680px;
+  background: rgba(38, 38, 38, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 18px;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
 
 .card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   transform: rotateY(0deg);
 }
 
 .card-back {
   transform: rotateY(180deg);
+  overflow-y: auto;
 }
 
-/* Ajuste de altura mínima para que no "salte" */
-.card-front, .card-back {
-  min-height: 520px;
+.card-back-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 108px;
+  height: 108px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
-  border: 3px solid #fff;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+  flex-shrink: 0;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 1.28rem;
+  line-height: 1.2;
+  text-align: center;
   margin-bottom: 8px;
 }
 
 .sub {
-  font-size: 14px;
-  color: #ccc;
-  margin-bottom: 10px;
-  line-height: 1.3;
-  padding: 0 10px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.45;
+  text-align: center;
+  margin-bottom: 12px;
 }
 
 .tagline {
-  font-size: 13px;
-  color: #f1f1f1;
+  font-size: 0.9rem;
+  color: #f3f3f3;
+  line-height: 1.45;
+  text-align: center;
   margin-bottom: 18px;
-  line-height: 1.4;
+}
+
+.btn-group {
+  width: 100%;
+  margin-top: 2px;
 }
 
 .btn {
-  display: block;
   width: 100%;
-  background-color: #fff;
-  color: #1e1e1e;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  font-size: 15px;
   border: none;
+  border-radius: 12px;
+  padding: 13px 14px;
+  margin: 8px 0;
+  background: #ffffff;
+  color: #161616;
+  font-size: 0.96rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
 
-.btn:hover {
-  background-color: #e6e6e6;
+.btn:hover,
+.btn:focus-visible {
   transform: translateY(-1px);
+  background: #ececec;
+  outline: none;
 }
 
 .btn-secondary {
-  background-color: #3b82f6;
+  background: var(--primary);
   color: #fff;
 }
 
-.btn-secondary:hover {
-  background-color: #2563eb;
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--primary-hover);
 }
 
 .btn-tertiary {
-  background-color: transparent;
-  color: #aaa;
-  font-size: 13px;
+  background: transparent;
+  color: var(--muted-2);
+  font-size: 0.85rem;
+  font-weight: 600;
   margin-top: 4px;
 }
 
-.btn-tertiary:hover {
-  background-color: rgba(255, 255, 255, 0.06);
+.btn-tertiary:hover,
+.btn-tertiary:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
 
-/* ===== Back / Sobre mí ===== */
-
 .card-back h2 {
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 1.15rem;
+  margin-bottom: 2px;
   text-align: left;
 }
 
 .about-text {
-  font-size: 13px;
-  color: #f5f5f5;
-  margin-bottom: 10px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #f1f1f1;
   text-align: left;
 }
 
 .about-list {
   list-style: none;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  text-align: left;
-  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .about-list li {
-  font-size: 13px;
-  margin-bottom: 6px;
   display: flex;
-  align-items: center;
-  gap: 6px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .about-list i {
-  font-size: 13px;
+  margin-top: 3px;
+  color: var(--primary);
+  min-width: 16px;
 }
 
-/* ===== Mis emprendimientos ===== */
-
 .subtitulo {
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  font-weight: bold;
-  color: #ffffff;
+  margin-top: 6px;
+  font-size: 1rem;
+  font-weight: 700;
   text-align: left;
 }
 
 .biz-box {
-  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .biz-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 12px;
-  padding: 12px;
-  background-color: #383838;
-  border-radius: 10px;
+  background: var(--card-soft);
+  border-radius: 14px;
+  padding: 14px;
 }
 
 .biz-item i {
-  font-size: 20px;
-  margin-top: 4px;
-  color: #3b82f6;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-top: 3px;
 }
 
 .biz-text strong {
-  font-size: 14px;
+  font-size: 0.95rem;
   color: #fff;
 }
 
 .biz-text span {
-  font-size: 12.5px;
-  color: #cccccc;
-  line-height: 1.4;
+  display: inline-block;
+  font-size: 0.84rem;
+  color: #d8d8d8;
+  line-height: 1.45;
+  margin: 2px 0 4px;
 }
 
 .biz-link {
-  font-size: 12px;
-  color: #3b82f6;
+  color: #70a7ff;
   text-decoration: none;
-  font-weight: bold;
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
 .biz-link:hover {
   text-decoration: underline;
 }
 
-/* ===== Modal ===== */
-
 .modal {
   display: none;
   position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.72);
+  padding: 16px;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal.show {
+  display: block;
 }
 
 .modal-content {
-  background-color: #2c2c2c;
-  margin: 60px auto;
-  padding: 20px 20px 25px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 420px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
   position: relative;
+  width: min(100%, 420px);
+  margin: 40px auto;
+  background: #262626;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  padding: 20px 16px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .modal-content h2 {
-  margin-bottom: 15px;
-  font-size: 18px;
   text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
 }
 
 .close {
-  color: #aaa;
   position: absolute;
-  right: 16px;
   top: 10px;
-  font-size: 24px;
-  font-weight: bold;
+  right: 14px;
+  border: none;
+  background: transparent;
+  color: #bdbdbd;
+  font-size: 1.7rem;
+  line-height: 1;
   cursor: pointer;
 }
 
@@ -271,37 +324,34 @@ h1 {
   color: #fff;
 }
 
-/* Lista de alias */
-
 .alias-list {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .alias-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #383838;
-  padding: 10px 12px;
-  border-radius: 10px;
-  margin-bottom: 8px;
   gap: 10px;
+  background: #343434;
+  border-radius: 12px;
+  padding: 11px 12px;
 }
 
 .alias-logo {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  font-size: 14px;
-  color: #fff;
-  margin-right: 10px;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
-/* Colores por "logo" */
 .alias-logo.mp {
   background: #00c6ff;
 }
@@ -324,39 +374,96 @@ h1 {
 
 .alias-text {
   flex: 1;
+  min-width: 0;
 }
 
 .alias-text strong {
   display: block;
-  font-size: 14px;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
 }
 
 .alias-text span {
   display: block;
-  font-size: 13px;
+  font-size: 0.84rem;
   color: #dddddd;
+  word-break: break-word;
 }
 
-/* Botón de copiar */
-
 .copy-btn {
-  background: transparent;
+  width: 38px;
+  height: 38px;
   border: none;
-  color: #ffffff;
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 18px;
-  padding: 4px;
-  border-radius: 8px;
-  min-width: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-shrink: 0;
 }
 
 .copy-btn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .copy-btn.copied {
-  color: #4ade80;
+  color: var(--success);
+}
+
+@media (max-width: 420px) {
+  .page {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .card-flip,
+  .card {
+    min-height: 660px;
+  }
+
+  .card {
+    padding: 20px 15px;
+    border-radius: 18px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: 1.15rem;
+  }
+
+  .sub {
+    font-size: 0.86rem;
+  }
+
+  .tagline,
+  .about-text,
+  .about-list li {
+    font-size: 0.86rem;
+  }
+
+  .btn {
+    padding: 12px;
+    font-size: 0.92rem;
+  }
+
+  .modal-content {
+    margin: 24px auto;
+    padding: 18px 14px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-wrapper {
+    max-width: 430px;
+  }
+
+  .card-flip,
+  .card {
+    min-height: 700px;
+  }
 }
